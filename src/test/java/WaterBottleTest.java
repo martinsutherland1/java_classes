@@ -21,14 +21,24 @@ public class WaterBottleTest {
 
     @Test
     public void canEmptyBottle(){
+        waterBottle.fill();
         waterBottle.empty();
         assertEquals(0, waterBottle.getVolume());
     }
 
     @Test
     public void canFillBottle(){
+        waterBottle.empty();
         waterBottle.fill();
         assertEquals(100, waterBottle.getVolume());
     }
+
+    @Test
+    public void cantBeLessThanZero(){
+        waterBottle.empty();
+        waterBottle.drink();
+        assertEquals(0, waterBottle.getVolume());
+    }
+
 
 }
